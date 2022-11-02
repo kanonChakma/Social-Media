@@ -19,7 +19,7 @@ export interface LayoutProps {
 }
 
 const App: FC = () => {
-  const currentUser = false;
+  const currentUser = true;
 
   const Layout = () => {
     return (
@@ -27,7 +27,9 @@ const App: FC = () => {
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />
-          <Outlet />
+          <div style={{ flex: "6" }}>
+            <Outlet />
+          </div>
           <RightBar />
         </div>
       </div>
