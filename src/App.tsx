@@ -27,7 +27,9 @@ const App: FC = () => {
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />
-          <Outlet />
+          <div style={{ flex: "6" }}>
+            <Outlet />
+          </div>
           <RightBar />
         </div>
       </div>

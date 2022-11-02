@@ -4,6 +4,9 @@
   padding: 10px 20px;
   height: 50px;
   border: 1px solid lightgray;
+  top: 0;
+  position: sticky;
+  background: white;
   .left {
     display: flex;
     align-items: center;
