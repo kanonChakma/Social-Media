@@ -19,7 +19,7 @@ export interface LayoutProps {
 }
 
 const App: FC = () => {
-  const currentUser = false;
+  const currentUser = true;
 
   const Layout = () => {
     return (
