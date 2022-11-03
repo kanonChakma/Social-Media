@@ -1,52 +1,60 @@
+@import "../../style.scss";
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  height: 50px;
-  border: 1px solid lightgray;
-  top: 0;
-  position: sticky;
-  background: white;
-  .left {
+  @include themify($themes) {
     display: flex;
-    align-items: center;
-    gap: 30px;
-
-    span {
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .search {
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid themed("border");
+    top: 0;
+    position: sticky;
+    background-color: themed("bg");
+    color: themed("textColor");
+    z-index: 999;
+    .left {
       display: flex;
       align-items: center;
-      border: 1px solid lightgray;
-      padding: 5px;
-      gap: 10px;
-      input {
-        width: 500px;
-        border: none;
-        outline: none;
-        background-color: transparent;
-      }
-    }
-  }
-  .right {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+      gap: 30px;
 
-    .user {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      font-weight: 500;
-      img {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
       span {
+        font-weight: bold;
+        font-size: 20px;
+        color: themed("logo");
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        border: 1px solid themed("border");
+        padding: 5px;
+        gap: 10px;
+        input {
+          width: 500px;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          color: themed("textColor");
+        }
+      }
+    }
+    .right {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      .user {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-weight: 500;
+        img {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        span {
+        }
       }
     }
   }
