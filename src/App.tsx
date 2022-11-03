@@ -13,7 +13,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
-
+import "./style.scss";
 export interface LayoutProps {
   children: JSX.Element;
 }
@@ -23,7 +23,7 @@ const App: FC = () => {
 
   const Layout = () => {
     return (
-      <div>
+      <div className="theme-dark">
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />
