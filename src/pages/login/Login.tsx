@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 import "./login.scss";
 const Login: FC<{}> = () => {
+  const { login } = useContext(AuthContext);
   return (
     <div className="login">
       <div className="card">
@@ -23,7 +25,7 @@ const Login: FC<{}> = () => {
           <form>
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
-            <button>login</button>
+            <button onClick={() => login}>login</button>
           </form>
         </div>
       </div>

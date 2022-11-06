@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -9,6 +9,7 @@ import "./App.css";
 import LeftBar from "./components/leftBar/LeftBar";
 import NavBar from "./components/navBar/NavBar";
 import RightBar from "./components/rightBar/RightBar";
+import { DarkModeContext } from "./context/darkModContex";
 import Home from "./pages/Home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
@@ -20,10 +21,10 @@ export interface LayoutProps {
 
 const App: FC = () => {
   const currentUser = true;
-
+  const { darkMode } = useContext(DarkModeContext);
   const Layout = () => {
     return (
-      <div className="theme-dark">
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />

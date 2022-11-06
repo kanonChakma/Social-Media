@@ -1,14 +1,14 @@
 import { FC } from "react";
+import Posts from "../../components/posts/Posts";
+import Stories from "../../components/stories/Stories";
 import "./home.scss";
 
 const Home: FC<{}> = () => {
   return (
     <div className="home">
       <div className="container">
-        <div>this is HOme</div>
-        <div>this is HOme</div>
-        <div>this is HOme</div>
-        <div>this is HOme</div>
+        <Stories />
+        <Posts />
       </div>
     </div>
   );
