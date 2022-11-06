@@ -3,6 +3,7 @@
 .home {
   @include themify($themes) {
     background-color: themed("bgSoft");
+    flex: 6;
     .container {
       padding: 20px 70px;
       min-height: 100vh;
