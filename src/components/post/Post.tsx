@@ -3,8 +3,9 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
+import Comment from "../comments/Comment";
 import "./post.scss";
 interface postProps {
   post: {
@@ -18,6 +19,7 @@ interface postProps {
 }
 const Post: FC<postProps> = ({ post }) => {
   const { name, profilePic, desc, img } = post;
+  const [showComment, setShowComment] = useState(false);
   const liked = false;
   return (
     <div className="post">
@@ -43,7 +45,7 @@ const Post: FC<postProps> = ({ post }) => {
             {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
             <span>Likes</span>
           </div>
-          <div className="media">
+          <div className="media" onClick={() => setShowComment(!showComment)}>
             <SmsOutlinedIcon />
             <span>Comments</span>
           </div>
@@ -52,6 +54,7 @@ const Post: FC<postProps> = ({ post }) => {
             <span>Share</span>
           </div>
         </div>
+        {showComment && <Comment />}
       </div>
     </div>
   );
