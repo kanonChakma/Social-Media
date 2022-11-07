@@ -18,7 +18,7 @@ interface postProps {
   };
 }
 const Post: FC<postProps> = ({ post }) => {
-  const { name, profilePic, desc, img } = post;
+  const { name, profilePic, desc, img, id } = post;
   const [showComment, setShowComment] = useState(false);
   const liked = false;
   return (
@@ -28,7 +28,10 @@ const Post: FC<postProps> = ({ post }) => {
           <div className="userdata">
             <img src={profilePic} alt="img" />
             <div className="user-details">
-              <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+              <Link
+                to={`/profile/${id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <span className="username">{name}</span>
               </Link>
               <span className="date">a few second ago</span>
