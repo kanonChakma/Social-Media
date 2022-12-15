@@ -1,5 +1,7 @@
 export interface LoginTypes {
   user: {
+    firstName: string;
+    lastName: string;
     friends: [];
   };
   token: string;

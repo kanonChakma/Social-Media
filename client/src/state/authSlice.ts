@@ -5,7 +5,9 @@ import { LoginTypes } from "./type";
 export interface AuthState {
   mode: string;
   user: {
+    firstName: string;
     friends: [];
+    lastName: string;
   } | null;
   token: string | null;
   posts: [];
@@ -13,7 +15,11 @@ export interface AuthState {
 
 const initialState: AuthState = {
   mode: "light",
-  user: null,
+  user: {
+    firstName: "kanon",
+    lastName: "chakma",
+    friends: [],
+  },
   token: null,
   posts: [],
 };
@@ -32,10 +38,9 @@ export const counterSlice = createSlice({
       state.token = token;
     },
 
-    setLogout: (state, action: PayloadAction<LoginTypes>) => {
-      const { user, token } = action.payload;
-      state.user = user;
-      state.token = token;
+    setLogout: (state) => {
+      state.user = null;
+      state.token = null;
     },
   },
 });
