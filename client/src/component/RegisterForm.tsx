@@ -51,7 +51,7 @@ const RegisterForm: React.FC<RegisterProps> = ({ setIsLogin, isLogin }) => {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
-
+    console.log(formData);
     const savedUserResponse = await fetch(
       "http://localhost:3001/auth/register",
       {
