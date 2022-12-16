@@ -3,21 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 import { LoginTypes } from "./type";
 
 export interface AuthState {
-  mode: string;
+  mode?: string;
   user: {
+    _id: string;
     firstName: string;
     friends: [];
     lastName: string;
+    picturePath: string;
   } | null;
-  token: string | null;
-  posts: [];
+  token?: string | null;
+  posts?: [];
 }
 
 const initialState: AuthState = {
-  mode: "light",
+  mode: "",
   user: {
-    firstName: "kanon",
-    lastName: "chakma",
+    _id: "",
+    picturePath: "",
+    firstName: "",
+    lastName: "",
     friends: [],
   },
   token: null,
