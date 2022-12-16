@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import { Formik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { setLogin } from "../state/authSlice";
+import { useAppDispatch } from "../state/hook";
 
 const loginSchema = yup.object().shape({
   email: yup.string().email("invalid email").required("required"),
@@ -29,7 +29,7 @@ interface LoginProps {
 
 const LoginForm: React.FC<LoginProps> = ({ setIsLogin, isLogin }) => {
   const { palette } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
@@ -41,6 +41,7 @@ const LoginForm: React.FC<LoginProps> = ({ setIsLogin, isLogin }) => {
     });
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
+    console.log(loggedIn);
     if (loggedIn) {
       dispatch(
         setLogin({

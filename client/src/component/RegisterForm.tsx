@@ -41,17 +41,17 @@ interface RegisterProps {
 }
 const RegisterForm: React.FC<RegisterProps> = ({ setIsLogin, isLogin }) => {
   const { palette } = useTheme();
-  const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const navigate = useNavigate();
 
-  const register = async (values: any, onSubmitProps: any) => {
+  const handleFormSubmit = async (values: any, onSubmitProps: any) => {
     // this allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
-    console.log(formData);
+
     const savedUserResponse = await fetch(
       "http://localhost:3001/auth/register",
       {
@@ -59,12 +59,10 @@ const RegisterForm: React.FC<RegisterProps> = ({ setIsLogin, isLogin }) => {
         body: formData,
       }
     );
-    const savedUser = await savedUserResponse.json();
+    await savedUserResponse.json();
+    // console.log({ savedUser });
     onSubmitProps.resetForm();
-  };
-
-  const handleFormSubmit = async (values: any, onSubmitProps: any) => {
-    await register(values, onSubmitProps);
+    setIsLogin(!isLogin);
   };
 
   return (

@@ -160,6 +160,7 @@ const NavBar: React.FC = () => {
             <FormControl variant="standard">
               <Select
                 value={fullName}
+                defaultValue={fullName}
                 sx={{
                   backgroundColor: neutralLight,
                   width: "150px",
@@ -178,7 +179,12 @@ const NavBar: React.FC = () => {
                 <MenuItem value={fullName}>
                   <Typography>{fullName}</Typography>
                 </MenuItem>
-                <MenuItem onClick={() => dispatch(setLogout())}>
+                <MenuItem
+                  onClick={() => {
+                    dispatch(setLogout());
+                    navigate("/login");
+                  }}
+                >
                   Log Out
                 </MenuItem>
               </Select>
