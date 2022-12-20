@@ -138,7 +138,7 @@ const UserWidget: React.FC<UserWidgetProps> = ({ userId, picturePath }) => {
 
         <FlexBetween gap="1rem" mb="0.5rem">
           <FlexBetween gap="1rem">
-            <img src="../../../public/twitter.png" alt="twitter" />
+            <img src="../../images/twitter.png" alt="twitter" />
             <Box>
               <Typography color={main} fontWeight="500">
                 Twitter
@@ -151,7 +151,7 @@ const UserWidget: React.FC<UserWidgetProps> = ({ userId, picturePath }) => {
 
         <FlexBetween gap="1rem">
           <FlexBetween gap="1rem">
-            <img src="../../../public/linkedin.png" alt="linkedin" />
+            <img src="../../images/linkedin.png" alt="linkedin" />
             <Box>
               <Typography color={main} fontWeight="500">
                 Linkedin
