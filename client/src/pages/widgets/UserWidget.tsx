@@ -40,6 +40,7 @@ let UserValue = {
   friends: [],
 };
 const UserWidget: React.FC<UserWidgetProps> = ({ userId, picturePath }) => {
+  console.log(userId, picturePath);
   const [user, setUser] = useState<UserProps>(UserValue);
   const { palette } = useTheme();
   const navigate = useNavigate();
@@ -54,13 +55,14 @@ const UserWidget: React.FC<UserWidgetProps> = ({ userId, picturePath }) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
+    console.log(data);
     setUser(data);
   };
 
   useEffect(() => {
     getUser();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+  console.log({ user });
   if (!user) {
     return null;
   }
@@ -103,6 +105,7 @@ const UserWidget: React.FC<UserWidgetProps> = ({ userId, picturePath }) => {
         <ManageAccountsOutlined />
       </FlexBetween>
       <Divider />
+
       <Box p="1rem 0">
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
           <LocationOnOutlined fontSize="large" sx={{ color: main }} />

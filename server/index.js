@@ -12,7 +12,7 @@ import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/post.js";
 import { verifyToken } from "./middleware/auth.js";
 import authRoutes from "./routes/auth.js";
-//import postRoutes from "./routes/posts.js";
+import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
 
 /* CONFIGURATIONS */
@@ -47,7 +47,7 @@ const storage = multer.diskStorage({
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-// app.use("/posts", postRoutes)
+app.use("/posts", postRoutes)
 
   /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

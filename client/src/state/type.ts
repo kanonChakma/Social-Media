@@ -1,3 +1,14 @@
+export interface postType {
+  _id: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  location: string;
+  description: string;
+  picturePath: string;
+  userPicturePath: string;
+  comments: [];
+}
 export interface LoginTypes {
   user: {
     _id: string;
