@@ -1,5 +1,6 @@
 import { Box, useMediaQuery } from "@mui/material";
 import React from "react";
+import MyPostWidget from "../../component/MyPostWidget";
 import { useAppSelector } from "../../state/hook";
 import NavBar from "../navBar/NavBar";
 import UserWidget from "../widgets/UserWidget";
@@ -24,7 +25,9 @@ const HomePage: React.FC = () => {
         <Box
           flexBasis={isNonMobileScreens ? "42%" : undefined}
           mt={isNonMobileScreens ? undefined : "2rem"}
-        ></Box>
+        >
+          <MyPostWidget picturePath={user?.picturePath} />
+        </Box>
         <Box></Box>
       </Box>
     </div>

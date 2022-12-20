@@ -1,6 +1,6 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import { LoginTypes } from "./type";
+import { LoginTypes, postType } from "./type";
 
 export interface AuthState {
   mode?: string;
@@ -12,7 +12,7 @@ export interface AuthState {
     picturePath: string;
   } | null;
   token?: string | null;
-  posts?: [];
+  posts: postType[];
 }
 
 const initialState: AuthState = {
@@ -41,7 +41,17 @@ export const counterSlice = createSlice({
       state.user = user;
       state.token = token;
     },
+    setPosts: (state, action) => {
+      state.posts = action.payload.posts;
+    },
 
+    setPost: (state, action) => {
+      const updatedPosts = state.posts.map((post) => {
+        if (post._id === action.payload.post._id) return action.payload.post;
+        return post;
+      });
+      state.posts = updatedPosts;
+    },
     setLogout: (state) => {
       state.user = null;
       state.token = null;
@@ -49,5 +59,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setMode, setLogin, setLogout } = counterSlice.actions;
+export const { setMode, setLogin, setLogout, setPosts, setPost } =
+  counterSlice.actions;
 export default counterSlice.reducer;
