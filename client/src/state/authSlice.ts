@@ -10,7 +10,7 @@ export interface AuthState {
     friends: [];
     lastName: string;
     picturePath: string;
-  } | null;
+  };
   token?: string | null;
   posts: postType[];
 }
@@ -41,10 +41,18 @@ export const counterSlice = createSlice({
       state.user = user;
       state.token = token;
     },
+
     setPosts: (state, action) => {
       state.posts = action.payload.posts;
     },
 
+    setFriends: (state, action) => {
+      if (state.user) {
+        state.user.friends = action.payload.friends;
+      } else {
+        console.log("friends does not exist");
+      }
+    },
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
         if (post._id === action.payload.post._id) return action.payload.post;
@@ -53,12 +61,12 @@ export const counterSlice = createSlice({
       state.posts = updatedPosts;
     },
     setLogout: (state) => {
-      state.user = null;
+      state.user = initialState.user;
       state.token = null;
     },
   },
 });
 
-export const { setMode, setLogin, setLogout, setPosts, setPost } =
+export const { setMode, setLogin, setLogout, setPosts, setPost, setFriends } =
   counterSlice.actions;
 export default counterSlice.reducer;
